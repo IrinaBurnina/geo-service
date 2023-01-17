@@ -21,10 +21,10 @@ public class GeoServiceImplTest {
         assertEquals(expectedLocation, resultIp);
     }
 
-    @ParameterizedTest
+    @Test
     @NullAndEmptySource
-    public void byIpStringNullTest(String ip) {
-        ip = "k";
+    public void byIpStringNullTest() {
+        String ip = "k";
         GeoServiceImpl geoService = new GeoServiceImpl();
         Location resultIp = geoService.byIp(ip);
         assertNull(resultIp);
@@ -40,8 +40,8 @@ public class GeoServiceImplTest {
 
     @Test
     public void byCoordinatesParamTest() {
-        double latitude=0.0;
-        double longitude=0.0;
+        double latitude = 0.0;
+        double longitude = 0.0;
         GeoServiceImpl geoService = new GeoServiceImpl();
         assertThrows(RuntimeException.class, () -> geoService.byCoordinates(latitude, longitude));
     }
